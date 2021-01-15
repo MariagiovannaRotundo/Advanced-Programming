@@ -6,6 +6,9 @@ public class Main {
 		
 		CountingWords c= new CountingWords("output_counting");
 		c.start();
+		
+		//InvertedIndex i= new InvertedIndex("output_inverted");
+		//i.start();
 
 	}
 
