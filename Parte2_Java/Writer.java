@@ -13,4 +13,11 @@ public class Writer {
             .forEach(p -> ps.println(p.getKey() + ", " + p.getValue()));
         ps.close();
     }
+    
+    public static void writeInverted (File dst, Stream<Pair<String, Integer>> res) throws FileNotFoundException {
+        PrintStream ps = new PrintStream(dst);
+        res.sorted(Comparator.comparing(Pair<String,Integer>::getKey).thenComparing(Comparator.comparing(Pair::getValue)))
+            .forEach(p -> ps.println(p.getKey() + ", " + p.getValue()));
+        ps.close();
+    }
 }
