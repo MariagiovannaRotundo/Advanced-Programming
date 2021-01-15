@@ -112,6 +112,7 @@ public class CountingWords extends MapReduce<String, String, List<String>, Integ
 					newList.add(new Pair<>(x.getKey(), sum));
 				}
 		);
+
 		return newList.stream();
 		
 	}
