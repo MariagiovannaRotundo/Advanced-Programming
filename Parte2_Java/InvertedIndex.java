@@ -101,7 +101,7 @@ public class InvertedIndex extends MapReduce<String, String, List<String>, Integ
 	protected void write(Stream<Pair<String,Integer>> output) {
 		try {
 			//write the obtained stream on the file indicated by file_write
-			Writer.write(this.file_write, output);
+			Writer.writeInverted(this.file_write, output);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
