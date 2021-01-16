@@ -31,7 +31,7 @@ public class CountingWords extends MapReduce<String, String, List<String>, Integ
 
 	
 	@Override
-	public Stream<Pair<String,List<String>>> read(){
+	protected Stream<Pair<String,List<String>>> read(){
 		try {
 			return new Reader(this.path).read();
 		} catch (IOException e) {
