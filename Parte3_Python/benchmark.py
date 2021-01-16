@@ -71,7 +71,7 @@ def benchmark(warmups = 0, iter = 1, verbose = False, csv_file = None):
                     f.write(str(i+1)+", true, "+ str(item)+"\n")
 
                 for (i, item) in enumerate(inv_times):
-                    f.write(str(i+warmups+1)+", false, "+ str(item)+"\n")
+                    f.write(str(i+1)+", false, "+ str(item)+"\n")
 
                 f.close()
 
