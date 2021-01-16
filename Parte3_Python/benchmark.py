@@ -96,9 +96,10 @@ def test(f, iterations, nthreads):
         #array with threads
         threads = []
         for i in range(nthreads):
+            #creation of the thread and add to list of threads
             threads.append(threading.Thread(target=thread_task, args=()))
             
-        #start threads 
+        #execution of threads 
         for t in threads:
             t.start()
 
@@ -148,4 +149,11 @@ if __name__ == "__main__":
 4 - 4: 14.988358736038208
 2 - 8: 17.758260011672974
 
+
+We can notice that increasing the number of threads, keeping the same number
+of calls to the function (Fibonacci), we don't have better performance, 
+but rather a little bit worst.
+This is because of the Global Interpreter Lock (GIL): each thread must hold 
+the GIL before access to Python objects (so we have one thread executed at a time). 
+Moreover, GIL can cause worst performance because the more overhead.
 """
