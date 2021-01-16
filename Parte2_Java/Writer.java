@@ -14,6 +14,7 @@ public class Writer {
         ps.close();
     }
     
+    //method to sort keys and then values
     public static void writeInverted (File dst, Stream<Pair<String, Integer>> res) throws FileNotFoundException {
         PrintStream ps = new PrintStream(dst);
         res.sorted(Comparator.comparing(Pair<String,Integer>::getKey).thenComparing(Comparator.comparing(Pair::getValue)))
