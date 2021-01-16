@@ -31,8 +31,14 @@ mapLB f (LB x) =
 --A type f is a Functor if it provides a function fmap which, 
 --given any types a and b lets you apply any function from (a -> b) 
 --to turn an f a into an f b, preserving the structure of f
+--Furthermore f needs to adhere to the following:
+--1. Identity
+--2. Composition
 
---A constrain that we have on ListBag is the Eq on the elements 
---using fmap = mapLB we can possibly violate this constrain onto the 
---ListBag because we can obtain (thanks to the function we apply) 
---a type b (in ListBag b) that does not support Eq.
+--we can notice that the structure of f can be broken using fmap = mapLB
+--because ListBag are well-formed (look also at the previous exercise)
+--but applying fmap it may no longer be true, for example in the case of use of a 
+--function that return always the same value (a costant).
+--In this case, we will have a ListBag with a key that appears in more than one
+--pair, but in a multiset respresented with pairs (key, multiplicity) we have 
+--only one pair for every key that appears in it.
